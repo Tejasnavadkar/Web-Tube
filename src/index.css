@@ -1,3 +1,66 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* *{
+    scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar{
+    @apply bg-transparent w-2
+}
+
+*::-webkit-scrollbar-thumb{
+    @apply bg-secondary-dark rounded-full
+}
+
+.scrollbar-hidden::-webkit-scrollbar-thumb{
+    @apply bg-transparent;
+}
+.scrollbar-hidden:hover::-webkit-scrollbar-thumb{
+    @apply bg-secondary-border;
+} */
+
+
+
+/* Base scrollbar styles */
+* {
+    scrollbar-width: thin; /* For Firefox */
+}
+
+/* Webkit scrollbar styling */
+*::-webkit-scrollbar {
+    width: 8px; /* Adjust the width of the scrollbar */
+    height: 8px; /* For horizontal scrollbar, adjust height as needed */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Invisible by default */
+    border-radius: 9999px; /* Make it rounded */
+}
+
+/* For showing scrollbar only when sidebar is hovered */
+.sidebar:hover::-webkit-scrollbar {
+    background-color: rgba(0, 0, 0, 0.2); /* Change to desired color */
+    width: 8px; /* Adjust width for the scrollbar */
+}
+
+.sidebar:hover::-webkit-scrollbar-thumb {
+    background-color: #333; /* Change to desired thumb color */
+    border-radius: 9999px; /* Ensure the thumb is rounded */
+}
+
+/* Optional: Hide the scrollbar when not hovered */
+.sidebar::-webkit-scrollbar {
+    width: 0;
+}
+
+/* Hidden scrollbar */
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+/* Optional: Thumb style when sidebar is not hovered */
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Make thumb invisible when not hovered */
+}

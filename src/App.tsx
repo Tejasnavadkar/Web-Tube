@@ -6,6 +6,7 @@ import { categories,videos } from './Data'
 import { useState } from 'react'
 import VideoGrid from './components/VideoGrid'
 import SideBar from './layouts/SideBar'
+import { SidebarProvider } from './Context/SidebarContext'
 
 
 function App() {
@@ -14,12 +15,13 @@ function App() {
 
   return (
     <>
+    <SidebarProvider>
       <div className='max-h-screen max-w-full flex flex-col'>
         <PageHeader />
         <div className=' grid grid-cols-[auto,1fr] flex-grow-1 overflow-auto'>
-          <div>
+          
             <SideBar/>
-          </div>
+          
           <div className='overflow-x-hidden  px-8 pb-4'>
             <div className=' sticky top-0 bg-white z-10 pb-4'>
               <CategoryPills categories={categories} selectedcategory={selectedcategory} onSelect={setSelectedCategory}
@@ -30,8 +32,8 @@ function App() {
             </div>
           </div>
         </div>
-
       </div>
+    </SidebarProvider>
     </>
   )
 }
